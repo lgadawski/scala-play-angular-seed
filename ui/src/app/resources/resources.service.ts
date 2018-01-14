@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RESY } from './mock-resources';
-import { Element } from './element';
+import { Resource } from './resource';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
@@ -16,11 +15,19 @@ constructor(
   private http: HttpClient
 ) { }
 
-  public get(): Observable<Element[]>  {
-    return this.http.get<Element[]>(this.resourcesUrl)
+  public get(): Observable<Resource[]>  {
+    return this.http.get<Resource[]>(this.resourcesUrl)
       .pipe(
         catchError(this.handleError('get', []))
       );
+  }
+
+  public post(body) {
+    return this.http
+      .post(this.resourcesUrl, JSON.stringify(body), {
+        headers: new HttpHeaders().set('Content-Type', 'application/form-data'),
+      })
+      .subscribe();
   }
 
   /**

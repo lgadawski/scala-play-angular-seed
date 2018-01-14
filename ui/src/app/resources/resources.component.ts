@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Element } from './element';
+import { Resource } from './resource';
 
 import { ResourcesService } from './resources.service';
 
@@ -12,11 +12,9 @@ import { ResourcesService } from './resources.service';
 })
 export class ResourcesComponent implements OnInit {
 
-  resy: Element[];
+  resy: Resource[];
 
-  constructor(private resourcesService: ResourcesService) {
-
-  }
+  constructor(private resourcesService: ResourcesService) {}
 
   ngOnInit() {
     this.getResources();

@@ -10,7 +10,7 @@ GET     /summary                        controllers.HomeController.appSummary
 
 GET     /api/resources                  controllers.ResourcesController.get
 #GET     /api/resources:id               controllers.ResourcesController.get(id: Long)
-#POST    /api/resources                  controllers.ResourcesController.add
+POST    /api/resources                  controllers.ResourcesController.add
 
 # Map static resources from the /public folder to the file rosource path
 GET     /*file                          controllers.Assets.at(path="/public", file)
