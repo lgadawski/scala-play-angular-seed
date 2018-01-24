@@ -13,14 +13,16 @@ export class ResourcesFormComponent implements OnInit {
 
   constructor (
     private resourcesService: ResourcesService,
-    private formBuilder FormBuilder) {}
+    private formBuilder: FormBuilder) {
+      // empty
+  }
 
   model = new Resource(null, '', '');
   submitted = false;
   errors: string[];
-  resourcesForm = FormGroup;
+  resourcesForm: FormGroup;
 
-  onInit() {
+  ngOnInit() {
     this.resourcesForm = this.formBuilder.group({
       'name':  [null, Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(120)])],
       'symbol': [null, Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(3)])]

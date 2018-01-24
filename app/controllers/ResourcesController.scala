@@ -18,6 +18,9 @@ class ResourcesController @Inject()(repo: ResourceRepository,
     repo.list().map { resource =>
       Ok(Json.toJson(resource))
     }
+  }
 
+  def add = Action.async { implicit request =>
+    
   }
 }
