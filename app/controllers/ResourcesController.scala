@@ -20,7 +20,7 @@ class ResourcesController @Inject()(repo: ResourceRepository,
     }
   }
 
-  def add = Action.async { implicit request =>
-    
-  }
+//  def add = Action.async { implicit request =>
+//
+//  }
 }
